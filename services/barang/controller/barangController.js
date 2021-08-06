@@ -20,7 +20,7 @@ class Controller {
   }
 
   static async postBarang (req, res) {
-    const { nama } = req.body
+    const nama = req.body.nama
     let user = req.currentUser.email;
     user = user.split('@')[0];
 
@@ -29,6 +29,7 @@ class Controller {
       userId: req.currentUser.id,
       user
     };
+    console.log('--------------------------------', req ,'------------------------------------------');
 
     console.log('--------------------------------', req.currentUser ,'------------------------------------------curent user di api barang');
 

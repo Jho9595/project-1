@@ -4,6 +4,7 @@ const router = require('express').Router()
 
 router
   .get('/getAllBarang', Controller.getAllBarang)
+  .get('/getOneBarang/:id', Controller.getOneBarang)
   .use(authentication)
   .post('/createBarang', Controller.postBarang)
   .put('/editBarang/:id', Controller.putBarang)

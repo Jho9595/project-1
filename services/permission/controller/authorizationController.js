@@ -10,6 +10,7 @@ class Controller {
     
     // disini headers = token nnti di decode id nya cocokin dgn userId
     // kalow cocok boleh edit delete == return ke client oke 200
+    console.log('--------------------------------', id ,'------------------------------------------ini di permision service');
     const decoded = verify(token)
 
     Barang.findById(id)
@@ -18,7 +19,7 @@ class Controller {
         if (result.userId === decoded.id) {
           res
             .status(200)
-            .json({ message: 'access granted'})
+            .json({ message: 'access granted' })
         }
         else {                
           throw { status: 401, message: `You are not authorized` }
@@ -32,7 +33,9 @@ class Controller {
       const status = err.status || 500
       const message = err.message || "Internal Server Error"
           
-      res.status(status).json({ message })
+      res
+        .status(status)
+        .json({ message })
     }) 
   }
 }
